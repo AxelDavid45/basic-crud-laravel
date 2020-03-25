@@ -22,10 +22,19 @@ class UsersController extends Controller
     // Store a new user
     public function store(Request $request)
     {
+        //Validate data
+        $request->validate(
+            [
+                'name'     => ['required'],
+                'email'    => ['required', 'unique:users', 'email'],
+                'password' => ['required', 'min:8']
+            ]
+        );
+        // Create the user
         User::create(
             [
-                'name' => $request->name,
-                'email' => $request->email,
+                'name'     => $request->name,
+                'email'    => $request->email,
                 'password' => $request->password
             ]
         );

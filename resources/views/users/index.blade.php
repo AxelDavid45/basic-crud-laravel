@@ -41,7 +41,8 @@
                                     class="btn btn-sm btn-danger"
                                     onclick=" return confirm('¿Estas seguro de borrar el usuario?')"
                                     type="submit">
-                                    Eliminar</button>
+                                    Eliminar
+                                </button>
                             </form>
                         </td>
                     </tr>
