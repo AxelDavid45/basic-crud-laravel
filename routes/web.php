@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'UsersController@index');
 Route::post('users', 'UsersController@store')->name('users.store');
 Route::delete('users/{user}', 'UsersController@destroy')->name('users.destroy');
+//Ruta resource 7 rutas listas
+Route::resource('pages', 'PageController');
