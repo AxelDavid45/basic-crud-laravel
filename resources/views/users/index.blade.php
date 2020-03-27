@@ -1,53 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>CRUD</title>
-    {{-- Bootstrap--}}
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-</head>
-<body>
-<main class="container">
+@extends('app')
+@section('content')
     <div class="row">
         <div class="col-sm-8 mx-auto">
             <div class="card border-0 my-3 shadow">
                 <div class="card-body">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach($errors->all() as $error)
-                                - {{ $error }}<br>
-                            @endforeach
-                        </div>
-                    @endif
-                    <form class="form-row d-flex justify-content-center"
-                          action="{{ route('users.store') }}"
-                          method="POST">
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" placeholder="Name" name="name"
-                                   value="{{ old('name') }}">
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="email" class="form-control" placeholder="Email"
-                                   name="email"
-                                   value="{{ old('email') }}">
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="password" class="form-control" placeholder="Password"
-                                   name="password"
-                                   value="{{ old('password') }}">
-                        </div>
-                        <div class="col-auto">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-                    </form>
+                    @include('users.form')
                 </div>
             </div>
             <table class="table">
@@ -84,7 +41,4 @@
             </table>
         </div>
     </div>
-
-</main>
-</body>
-</html>
+@endsection
