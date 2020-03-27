@@ -19,7 +19,13 @@
         <div class="col-sm-8 mx-auto">
             <div class="card border-0 my-3 shadow">
                 <div class="card-body">
-                    <h1 class="text-center">CRUD</h1>
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                - {{ $error }}<br>
+                            @endforeach
+                        </div>
+                    @endif
                     <form class="form-row d-flex justify-content-center"
                           action="{{ route('users.store') }}"
                           method="POST">
